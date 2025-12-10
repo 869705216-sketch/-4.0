@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-// 一个简单的占位 App，你可以先确认页面不再黑屏
-// 后面再把真正的内容塞进来
+// 临时占位 App 组件，确认页面能显示
 function App() {
   return React.createElement(
     "div",
