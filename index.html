@@ -2,15 +2,116 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Test Page</title>
+    <title>Grand Luxury Christmas Tree</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body style="margin:0; display:flex; align-items:center; justify-content:center; height:100vh; background:#111; color:#fff; font-family:sans-serif;">
-    <h1>如果你看到这行字，说明 index.html 已经生效 ✅</h1>
 
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      console.log("简单测试脚本运行成功");
-      alert("Test page loaded OK");
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              emerald: {
+                900: '#022c22',
+                950: '#011c15',
+              },
+              gold: {
+                300: '#E6C885',
+                500: '#C5A059',
+              }
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        background-color: #011c15;
+      }
+      #root {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React 18 UMD 版本（不涉及 export/import） -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+
+    <!-- 入口脚本：纯 JS，没有 export / import / JSX -->
+    <script>
+      const { createElement, StrictMode } = React;
+
+      function App() {
+        return createElement(
+          "div",
+          {
+            className:
+              "w-full h-full flex flex-col items-center justify-center bg-emerald-950 text-white gap-6",
+          },
+          createElement(
+            "div",
+            { className: "text-center space-y-3 px-4" },
+            createElement(
+              "h1",
+              {
+                className:
+                  "text-3xl md:text-4xl font-serif tracking-wide text-gold-300",
+              },
+              "Grand Luxury Christmas Tree"
+            ),
+            createElement(
+              "p",
+              {
+                className:
+                  "text-sm md:text-base text-gray-300 max-w-xl mx-auto",
+              },
+              "If you can see this screen, React is now running correctly on GitHub Pages. Next, you can replace this area with your real 3D tree, lights and interactions."
+            )
+          ),
+          createElement(
+            "div",
+            {
+              className:
+                "mt-2 inline-flex items-center gap-2 rounded-full border border-gold-500/60 px-4 py-1 text-xs text-gold-300 bg-emerald-900/60",
+            },
+            createElement("span", null, "✅ React mounted successfully"),
+            createElement(
+              "span",
+              { className: "text-gray-400" },
+              "| no more ",
+              "export",
+              " errors"
+            )
+          )
+        );
+      }
+
+      const rootElement = document.getElementById("root");
+      if (!rootElement) {
+        throw new Error("Could not find root element to mount to");
+      }
+
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(
+        createElement(
+          StrictMode,
+          null,
+          createElement(App, null)
+        )
+      );
     </script>
   </body>
 </html>
