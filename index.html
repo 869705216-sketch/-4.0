@@ -2,104 +2,15 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Grand Luxury Christmas Tree</title>
+    <title>Test Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- 不再用 vite.svg，避免 404，如果你有图标可以自己加 -->
-    <!-- <link rel="icon" type="image/svg+xml" href="./vite.svg" /> -->
-
-    <!-- Tailwind CDN（保留你原来的配置） -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              gold: {
-                100: '#F9F1D8',
-                300: '#E6C885',
-                500: '#C5A059',
-                700: '#8C6E33',
-                900: '#5A4318',
-              },
-              emerald: {
-                900: '#022c22',
-                950: '#011c15',
-              }
-            },
-            fontFamily: {
-              serif: ['Playfair Display', 'serif'],
-            }
-          }
-        }
-      }
-    </script>
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-    <!-- 你暂时没有 index.css，就先注释掉这行，避免 404 -->
-    <!-- <link rel="stylesheet" href="./index.css"> -->
-
-    <style>
-      body {
-        margin: 0;
-        background-color: #011c15;
-        overflow: hidden;
-      }
-      #root {
-        width: 100vw;
-        height: 100vh;
-      }
-    </style>
   </head>
-  <body>
-    <div id="root"></div>
+  <body style="margin:0; display:flex; align-items:center; justify-content:center; height:100vh; background:#111; color:#fff; font-family:sans-serif;">
+    <h1>如果你看到这行字，说明 index.html 已经生效 ✅</h1>
 
-    <!-- 使用 UMD 版本的 React，不再用 import/export，不会再有 Unexpected 'export' -->
-    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
-
-    <!-- 入口脚本：纯 JS，没有任何 export / import / TSX / JSX -->
     <script>
-      const { createElement, StrictMode } = React;
-
-      function App() {
-        return createElement(
-          "div",
-          {
-            className:
-              "w-full h-full flex flex-col items-center justify-center text-white gap-4 bg-emerald-950",
-          },
-          createElement(
-            "h1",
-            { className: "text-3xl md:text-4xl font-serif tracking-wide" },
-            "Grand Luxury Christmas Tree"
-          ),
-          createElement(
-            "p",
-            {
-              className:
-                "text-sm md:text-base text-gray-300 max-w-md text-center px-4",
-            },
-            "If you can see this screen, React is working correctly on GitHub Pages. Now you can gradually replace this placeholder with your real 3D tree experience."
-          )
-        );
-      }
-
-      const rootElement = document.getElementById("root");
-      if (!rootElement) {
-        throw new Error("Could not find root element to mount to");
-      }
-
-      const root = ReactDOM.createRoot(rootElement);
-      root.render(
-        createElement(
-          StrictMode,
-          null,
-          createElement(App, null)
-        )
-      );
+      console.log("简单测试脚本运行成功");
+      alert("Test page loaded OK");
     </script>
   </body>
 </html>
