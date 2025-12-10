@@ -2,8 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Grand Luxury Christmas Tree</title>
+    <!-- 如果你真的有 vite.svg，可以改成 ./vite.svg；否则直接注释掉以免 404 -->
+    <!-- <link rel="icon" type="image/svg+xml" href="./vite.svg" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grand Luxury Christmas Tree</title>
 
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -12,13 +14,16 @@
         theme: {
           extend: {
             colors: {
+              gold: {
+                100: '#F9F1D8',
+                300: '#E6C885',
+                500: '#C5A059',
+                700: '#8C6E33',
+                900: '#5A4318',
+              },
               emerald: {
                 900: '#022c22',
                 950: '#011c15',
-              },
-              gold: {
-                300: '#E6C885',
-                500: '#C5A059',
               }
             },
             fontFamily: {
@@ -29,28 +34,53 @@
       }
     </script>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts for Luxury Feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- 你现在没用到 MediaPipe，可以先去掉；以后真要用再加 -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision/vision_bundle.js" crossorigin="anonymous"></script> -->
 
     <style>
       body {
         margin: 0;
         background-color: #011c15;
+        overflow: hidden;
       }
       #root {
         width: 100vw;
         height: 100vh;
       }
     </style>
+
+    <!-- 原来的 importmap + module 方案对 GitHub Pages 太折腾，这里先不用 -->
+    <!--
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.1",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+        "react/": "https://aistudiocdn.com/react@^19.2.1/",
+        "three": "https://aistudiocdn.com/three@^0.181.2",
+        "@react-three/fiber": "https://aistudiocdn.com/@react-three/fiber@^9.4.2",
+        "@react-three/drei": "https://aistudiocdn.com/@react-three/drei@^10.7.7",
+        "@react-three/postprocessing": "https://aistudiocdn.com/@react-three/postprocessing@^3.0.4",
+        "zustand": "https://aistudiocdn.com/zustand@^5.0.9"
+      }
+    }
+    </script>
+    -->
+
+    <!-- 如果你有 index.css，可以用相对路径 ./index.css；没有的话先注释掉 -->
+    <!-- <link rel="stylesheet" href="./index.css" /> -->
   </head>
   <body>
     <div id="root"></div>
 
-    <!-- React 18 UMD 版本（不涉及 export/import） -->
+    <!-- React 18 UMD 版本（不再用 export/import，不会再有 Unexpected token 'export'） -->
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
 
-    <!-- 入口脚本：纯 JS，没有 export / import / JSX -->
+    <!-- 入口脚本：纯 JS，没有 TSX / export / import -->
     <script>
       const { createElement, StrictMode } = React;
 
@@ -78,7 +108,7 @@
                 className:
                   "text-sm md:text-base text-gray-300 max-w-xl mx-auto",
               },
-              "If you can see this screen, React is now running correctly on GitHub Pages. Next, you can replace this area with your real 3D tree, lights and interactions."
+              "If you can see this screen, this page is running correctly on GitHub Pages with React and Tailwind. You can now replace this area with your 3D tree, scenes, and product content."
             )
           ),
           createElement(
